@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurelia National Statistics Office — Official Statistics of the Republic of Aurelia</title>
+<meta name="description" content="Official statistics of the fictional Republic of Aurelia: population, economy, health, education and the six provinces, published by the Aurelia National Statistics Office.">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#/">
+      <span class="flag" aria-hidden="true"><span class="flag-a"></span><span class="flag-b"></span><span class="flag-c"></span></span>
+      <span class="brand-text">
+        <strong>Aurelia National Statistics Office</strong>
+        <small>Official statistics of the Republic of Aurelia</small>
+      </span>
+    </a>
+    <label class="year-picker">Reference year
+      <select id="yearSelect" class="year-select" aria-label="Reference year"></select>
+    </label>
+  </div>
+  <nav class="mainnav" aria-label="Main navigation">
+    <div class="wrap nav-links">
+      <a href="#/" data-route="">Overview</a>
+      <a href="#/population" data-route="population">Population</a>
+      <a href="#/economy" data-route="economy">Economy</a>
+      <a href="#/health" data-route="health">Health</a>
+      <a href="#/education" data-route="education">Education</a>
+      <a href="#/regions" data-route="regions">Regions</a>
+      <a href="#/tables" data-route="tables">Data tables</a>
+      <a href="#/about" data-route="about">About &amp; methodology</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap" id="page">
+
+  <!-- ============ OVERVIEW ============ -->
+  <section class="page" id="page-overview">
+    <h1>Aurelia in figures</h1>
+    <p class="lede">The Republic of Aurelia is an island nation of <strong>4.28 million people</strong> in the
+    southern ocean. Its capital is Port Meridian. This site publishes the Office&rsquo;s headline
+    statistics — updated every quarter and free for everyone to use.</p>
+
+    <div class="kpi-grid" id="kpiGrid"></div>
+
+    <div class="two-col">
+      <article class="card">
+        <h2>Population, 2015–<span class="year-label">2025</span></h2>
+        <p class="card-sub">Resident population at mid-year, millions</p>
+        <div class="chart" id="chartPop"></div>
+        <p class="source">Source: ANSO Population Estimates, November 2026.</p>
+      </article>
+      <article class="card">
+        <h2>Real GDP growth, 2015–<span class="year-label">2025</span></h2>
+        <p class="card-sub">Annual change in real GDP, percent</p>
+        <div class="chart" id="chartGdp"></div>
+        <p class="source">Source: ANSO National Accounts, November 2026.</p>
+      </article>
+    </div>
+
+    <div class="two-col">
+      <article class="card">
+        <h2>At a glance — <span class="year-label">2025</span></h2>
+        <dl class="facts" id="factsList"></dl>
+      </article>
+      <article class="card">
+        <h2>Latest releases</h2>
+        <ul class="releases" id="releaseList"></ul>
+        <p><a href="#/tables">Browse all indicators in the data tables &rarr;</a></p>
+      </article>
+    </div>
+
+    <article class="card">
+      <h2>Population by province, <span class="year-label">2025</span></h2>
+      <p class="card-sub">Share of the national population — click a province to open its profile</p>
+      <div class="chart" id="chartRegions"></div>
+    </article>
+  </section>
+
+  <!-- ============ POPULATION ============ -->
+  <section class="page" id="page-population" hidden>
+    <h1>Population</h1>
+    <p class="lede">Aurelia&rsquo;s population reached <strong>4,284,000</strong> at mid-2025, growing 0.3% on the
+    year. One in three residents lives in the capital province of Meridia.</p>
+    <div class="kpi-grid" id="kpiPop"></div>
+    <div class="two-col">
+      <article class="card">
+        <h2>Population growth, 2015–2025</h2>
+        <p class="card-sub">Resident population at mid-year, millions</p>
+        <div class="chart" id="chartPopFull"></div>
+        <p class="source">Source: ANSO Population Estimates, November 2026.</p>
+      </article>
+      <article class="card">
+        <h2>Age structure, 2025</h2>
+        <p class="card-sub">Share of the population by age group, percent</p>
+        <div class="chart" id="chartAge"></div>
+        <p class="source">Source: ANSO Census 2025, age tables.</p>
+      </article>
+    </div>
+    <article class="card">
+      <h2>Population by province, <span class="year-label">2025</span></h2>
+      <p class="card-sub">Click a column header to sort. Figures are mid-year estimates.</p>
+      <div class="table-scroll"><table class="sortable" id="tablePopRegions"></table></div>
+      <p class="source">Source: ANSO Population Estimates, November 2026.</p>
+    </article>
+  </section>
+
+  <!-- ============ ECONOMY ============ -->
+  <section class="page" id="page-economy" hidden>
+    <h1>Economy</h1>
+    <p class="lede">GDP was <strong>96.4 billion aurels</strong> in 2025, up 3.7% in real terms.
+    Services produce 61% of output; unemployment fell to 5.5%, its lowest in a decade.</p>
+    <div class="kpi-grid" id="kpiEcon"></div>
+    <div class="two-col">
+      <article class="card">
+        <h2>GDP, 2015–2025</h2>
+        <p class="card-sub">Billion aurels at current prices</p>
+        <div class="chart" id="chartGdpFull"></div>
+        <p class="source">Source: ANSO National Accounts, November 2026.</p>
+      </article>
+      <article class="card">
+        <h2>What Aurelia produces, 2025</h2>
+        <p class="card-sub">Share of GDP by sector, percent</p>
+        <div class="chart" id="chartSectors"></div>
+        <p class="source">Source: ANSO National Accounts, November 2026.</p>
+      </article>
+    </div>
+    <div class="two-col">
+      <article class="card">
+        <h2>Trade, 2015–2025</h2>
+        <p class="card-sub">Exports and imports of goods, billion aurels</p>
+        <div class="chart" id="chartTrade"></div>
+        <p class="source">Source: ANSO Trade Statistics, November 2026.</p>
+      </article>
+      <article class="card">
+        <h2>Prices and jobs, <span class="year-label">2025</span></h2>
+        <dl class="facts" id="factsEcon"></dl>
+        <p class="source">Source: ANSO Labour Force Survey Q3 2026; CPI October 2026.</p>
+      </article>
+    </div>
+    <article class="card">
+      <h2>Economy by year</h2>
+      <p class="card-sub">Click a column header to sort.</p>
+      <div class="table-scroll"><table class="sortable" id="tableEcon"></table></div>
+      <p class="source">Source: ANSO National Accounts; Labour Force Survey; CPI.</p>
+    </article>
+  </section>
+
+  <!-- ============ HEALTH ============ -->
+  <section class="page" id="page-health" hidden>
+    <h1>Health</h1>
+    <p class="lede">Life expectancy reached <strong>80.2 years</strong> in 2025. Aurelia has 3.82 hospital
+    beds per 1,000 people and 30.6 doctors per 10,000 people.</p>
+    <div class="tabs" role="tablist" aria-label="Health sections">
+      <button class="tab active" data-tab="health-overview" role="tab" aria-selected="true">Overview</button>
+      <button class="tab" data-tab="health-care" role="tab" aria-selected="false">Hospitals &amp; staffing</button>
+      <button class="tab" data-tab="health-causes" role="tab" aria-selected="false">Causes of death</button>
+    </div>
+    <div class="tab-panel" id="tab-health-overview">
+      <div class="kpi-grid" id="kpiHealth"></div>
+      <article class="card">
+        <h2>Life expectancy at birth, 2015–2025</h2>
+        <p class="card-sub">Years</p>
+        <div class="chart" id="chartLife"></div>
+        <p class="source">Source: ANSO Life Tables, November 2026.</p>
+      </article>
+    </div>
+    <div class="tab-panel" id="tab-health-care" hidden>
+      <article class="card">
+        <h2>Hospitals and staffing, 2015–2025</h2>
+        <p class="card-sub">Click a column header to sort.</p>
+        <div class="table-scroll"><table class="sortable" id="tableHealth"></table></div>
+        <p class="source">Source: ANSO Health Survey, October 2026.</p>
+      </article>
+    </div>
+    <div class="tab-panel" id="tab-health-causes" hidden>
+      <article class="card">
+        <h2>Main causes of death, 2025</h2>
+        <p class="card-sub">Share of all deaths, percent</p>
+        <div class="chart" id="chartCauses"></div>
+        <p class="source">Source: ANSO Mortality Register, 2025.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="page" id="page-education" hidden>
+    <h1>Education</h1>
+    <p class="lede">Nearly every child is in primary school (99.2% net enrolment) and two in three
+    young adults enter tertiary education. Adult literacy stands at 98.2%.</p>
+    <div class="tabs" role="tablist" aria-label="Education sections">
+      <button class="tab active" data-tab="edu-overview" role="tab" aria-selected="true">Overview</button>
+      <button class="tab" data-tab="edu-enrol" role="tab" aria-selected="false">Enrolment by year</button>
+    </div>
+    <div class="tab-panel" id="tab-edu-overview">
+      <div class="kpi-grid" id="kpiEdu"></div>
+      <article class="card">
+        <h2>Enrolment, 2015–2025</h2>
+        <p class="card-sub">Net enrolment, primary and secondary; gross enrolment, tertiary — percent</p>
+        <div class="chart" id="chartEnrol"></div>
+        <p class="source">Source: ANSO Education Statistics, October 2026.</p>
+      </article>
+    </div>
+    <div class="tab-panel" id="tab-edu-enrol" hidden>
+      <article class="card">
+        <h2>Enrolment by year</h2>
+        <p class="card-sub">Click a column header to sort.</p>
+        <div class="table-scroll"><table class="sortable" id="tableEdu"></table></div>
+        <p class="source">Source: ANSO Education Statistics, October 2026.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ REGIONS ============ -->
+  <section class="page" id="page-regions" hidden>
+    <h1>Regions</h1>
+    <p class="lede">Aurelia has six provinces. Meridia, home to the capital, holds 30% of the
+    population; Westmoor is the largest by area and the least densely settled.</p>
+    <label class="region-picker">Choose a province
+      <select id="regionSelect" aria-label="Choose a province"></select>
+    </label>
+    <article class="card region-card" id="regionCard"></article>
+    <article class="card">
+      <h2>Compare the provinces</h2>
+      <p class="card-sub">GDP per capita, aurels, 2025 — click a bar to open that province</p>
+      <div class="chart" id="chartRegionGdp"></div>
+      <p class="source">Source: ANSO Regional GDP estimates, November 2026.</p>
+    </article>
+    <article class="card">
+      <h2>All provinces at a glance</h2>
+      <p class="card-sub">Click a column header to sort.</p>
+      <div class="table-scroll"><table class="sortable" id="tableRegions"></table></div>
+      <p class="source">Source: ANSO Regional Statistics, November 2026.</p>
+    </article>
+  </section>
+
+  <!-- ============ TABLES ============ -->
+  <section class="page" id="page-tables" hidden>
+    <h1>Data tables</h1>
+    <p class="lede">Every headline indicator, 2015–2025, in one place. Search to filter indicators,
+    click a column header to sort, and download the table as a CSV file.</p>
+    <div class="table-tools">
+      <label>Search indicators
+        <input type="search" id="tableSearch" placeholder="e.g. unemployment, GDP, literacy" aria-label="Search indicators">
+      </label>
+      <button class="btn" id="csvBtn" type="button">Download CSV</button>
+    </div>
+    <article class="card">
+      <div class="table-scroll"><table class="sortable" id="tableAll"></table></div>
+      <p class="source">Source: ANSO headline indicators, November 2026. Figures are rounded; see About &amp; methodology for definitions.</p>
+    </article>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="page" id="page-about" hidden>
+    <h1>About &amp; methodology</h1>
+    <p class="lede">The Aurelia National Statistics Office (ANSO) is the country&rsquo;s independent
+    statistics authority. It publishes the figures on this site under the Statistics Act of
+    the Republic of Aurelia.</p>
+    <article class="card">
+      <h2>How the figures are made</h2>
+      <ul class="method">
+        <li><strong>Population:</strong> mid-year estimates from the 2025 Census, updated with births, deaths and migration registers.</li>
+        <li><strong>Economy:</strong> national accounts compiled to the Aurelian System of National Accounts; GDP at current prices, growth in volume terms.</li>
+        <li><strong>Prices:</strong> the Consumer Price Index tracks a basket of 412 goods and services priced monthly in all six provinces.</li>
+        <li><strong>Labour:</strong> the quarterly Labour Force Survey interviews 12,400 households; unemployment follows the ILO definition.</li>
+        <li><strong>Health:</strong> life tables from the Mortality Register; hospital figures from the annual Health Survey of all 86 hospitals.</li>
+        <li><strong>Education:</strong> enrolment from the school census each September; literacy from the 2025 Census.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h2>Release calendar</h2>
+      <ul class="releases" id="releaseListAbout"></ul>
+    </article>
+    <article class="card">
+      <h2>Using our data</h2>
+      <p>All figures on this site are free to reuse with attribution: &ldquo;Source: Aurelia National
+      Statistics Office&rdquo;. The site works entirely offline — every page, chart and table is
+      contained in its own files, with no connection needed.</p>
+      <p>Contact: statistics@anso.aurelia.example · Port Meridian, Meridia, Republic of Aurelia.</p>
+    </article>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Aurelia National Statistics Office</strong> · Port Meridian, Republic of Aurelia</p>
+    <p class="fine">Aurelia is a fictional country; all figures on this site are invented for
+    demonstration and are not real statistics. Sources cited are the Office&rsquo;s own fictional publications.</p>
+    <p><a href="#/about">About &amp; methodology</a> · <a href="#/tables">Data tables</a> · <a href="#/">Back to overview</a></p>
+  </div>
+</footer>
+</body>
+</html>
